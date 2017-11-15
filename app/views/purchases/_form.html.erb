@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :product_id %>
-    <%= form.text_field :product_id, id: :purchase_product_id %>
+    <%= form.select("product_id", Product.all.collect { |p| [ p.name, p.id ]}) %>
   </div>
 
   <div class="field">
     <%= form.label :quantity %>
-    <%= form.number_field :quantity, id: :purchase_quantity %>
+    <%= form.number_field :quantity, id: :purchase_quantity, min: 0 %>
   </div>
 
   <div class="actions">
